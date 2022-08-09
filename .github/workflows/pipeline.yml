@@ -29,7 +29,7 @@ jobs:
     #    with:
     #     command: npm run test:e2e
     #     start: npm run start:test
-    #     wait-on: http://localhost:5100
+    #     wait-on: http://localhost:5000
      - name: heroku build   
        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
        with:
@@ -37,7 +37,7 @@ jobs:
         heroku_app_name: "testing-deployments" #Must be unique in Heroku
         heroku_email: "kardamitsis.e@gmail.com"
         procfile: "web: npm start"
-        # dontuseforce: true
+        dontuseforce: true
         healthcheck: "https://testing-deployments.herokuapp.com/health"
         checkstring: "ok"
         rollbackonhealthcheckfailed: true
